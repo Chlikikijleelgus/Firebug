@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Firebug extends JavaPlugin {
 	
-	Logger log = Logger.getLogger("Minecraft");
+	static Logger log = Logger.getLogger("Minecraft");
 	private final FirebugPlayerListener playerListener = new FirebugPlayerListener(this);
 	
 public void onEnable(){ 
