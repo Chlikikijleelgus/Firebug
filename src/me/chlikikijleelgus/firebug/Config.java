@@ -6,17 +6,17 @@ import org.bukkit.util.config.Configuration;
  
 public class Config {
         // Static fields loaded from the configuration file
-		public static boolean MessagePlayer;
+public static boolean MessagePlayer;
         public static String Message;
         public static boolean LogUsers;
  
         /**
-         * Load the configuration file
-         * @param config - Configuration to load
-         */
+* Load the configuration file
+* @param config - Configuration to load
+*/
         public static void load(Configuration config, File datafolder) {
-        	config.load(); //Load the Configuration file into memory.
-        	
+         config.load(); //Load the Configuration file into memory.
+        
                 // Check if it's empty, if so set default, if not, load it
                 if(config.getBoolean("MessagePlayer", true)) {
                         config.setProperty("MessagePlayer", "true");
@@ -42,10 +42,10 @@ public class Config {
         }
  
         /**
-         * Setup and load the configuration file
-         * @param directory
-         * @param configFile
-         */
+* Setup and load the configuration file
+* @param directory
+* @param configFile
+*/
         public static void configSetup(File directory) {
                 File configFile;
                 // Make the folder and configuration file if they don't exist.
@@ -79,3 +79,4 @@ public class Config {
         }
 
 }
+
