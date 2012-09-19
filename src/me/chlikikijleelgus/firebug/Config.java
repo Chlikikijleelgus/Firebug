@@ -35,10 +35,3 @@ public class Config {
             plugin.saveConfig();
         }
 }
-        /**
-* Setup and load the configuration file
-* @param directory
-* @param configFile
-*/
-
-

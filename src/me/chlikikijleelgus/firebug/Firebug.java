@@ -8,13 +8,13 @@ public class Firebug extends JavaPlugin {
 	
 	static Logger log = Logger.getLogger("Minecraft");
 	
-public void onEnable(){
-		/* Register a new player listener */
-		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
-		
-		/* Load the configuration */
-		Config.load(this);
-	}	 
-public void onDisable(){}
+	public void onEnable(){
+			/* Register a new player listener */
+			getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+			
+			/* Load the configuration */
+			Config.load(this);
+		}
+	public void onDisable(){}
 
 }
