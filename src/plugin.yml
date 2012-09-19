@@ -1,7 +1,7 @@
 author: Chlikikijleelgus
 name: Firebug
 main: me.chlikikijleelgus.firebug.Firebug
-version: 1.2
+version: 1.4
 
 permissions:
     firebug.*:
