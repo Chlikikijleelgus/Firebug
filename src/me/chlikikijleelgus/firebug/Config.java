@@ -1,81 +1,44 @@
 package me.chlikikijleelgus.firebug;
 
-import java.io.File;
-import java.io.IOException;
-import org.bukkit.util.config.Configuration;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
  
 public class Config {
         // Static fields loaded from the configuration file
 		public static boolean MessagePlayer;
         public static String Message;
         public static boolean LogUsers;
+        public static boolean ReplaceSteel;
+        public static int ReplaceWithID;
+        public static boolean RemoveFire;
+
+        static FileConfiguration config;
  
         /**
-         * Load the configuration file
-         * @param config - Configuration to load
-         */
-        public static void load(Configuration config, File datafolder) {
-        	config.load(); //Load the Configuration file into memory.
-        	
-                // Check if it's empty, if so set default, if not, load it
-                if(config.getBoolean("MessagePlayer", true)) {
-                        config.setProperty("MessagePlayer", "true");
-                        MessagePlayer = config.getBoolean("MessagePlayer", true);
-                }else{ MessagePlayer = config.getBoolean("MessagePlayer", false);}
-                
-                if(config.getBoolean("LogUsers", true)) {
-                    config.setProperty("LogUsers", "true");
-                    LogUsers = config.getBoolean("LogUsers", true);
-            }else{ LogUsers = config.getBoolean("LogUsers", false);}
-               
-                // Check if it's empty, if so set default, if not, load it
-                if(config.getString("Message")==null) {
-                        config.setProperty("Message", "Burn for your destructive actions!");
-                        Message = config.getString("Message");
-                }
-                else {
-                        Message = config.getString("Message");
-                }
-               
-                config.save();
- 
-        }
- 
-        /**
-         * Setup and load the configuration file
-         * @param directory
-         * @param configFile
-         */
-        public static void configSetup(File directory) {
-                File configFile;
-                // Make the folder and configuration file if they don't exist.
-                if (!directory.exists()) {
-                        directory.mkdirs();
-                        System.out.println("[Firebug] No Firebug directory found, creating...");
-                }
- 
-                configFile = new File(directory, "config.yml");
-                if (!configFile.exists()) {
-                        try {
-                                configFile.createNewFile();
+* Load the configuration file
+* @param config - Configuration to load
+*/
+        public static void load(Plugin plugin) {
+        	config = plugin.getConfig();
+        	config.options().copyDefaults(true);
+            plugin.saveDefaultConfig();
 
-                        } catch (IOException e) {
-                                e.printStackTrace();
-                        }
- 
-                        // Make the new configuration file
-                        Configuration config = new Configuration(new File(
-                                        directory, "config.yml"));
-                        System.out.println("[Firebug] No config.yml found, creating...");
-                        config.save();
- 
-                        // Load the configuration file
-                        load(config, directory);
-                } else {
-                        // Load the configuration file
-                        load(new Configuration(new File(directory, "config.yml")), directory);
-                }
-               
-        }
+             //If these are not set in the config file, it uses the second argument, and inserts it into the config file.
+             MessagePlayer = config.getBoolean("MessagePlayer", true);
+             Message = config.getString("Message","Burn for your destructive actions!");
+             ReplaceSteel = config.getBoolean("ReplaceSteel", true);
+             ReplaceWithID = config.getInt("ReplaceWithID", 0);
+             LogUsers = config.getBoolean("LogUsers", true);
+             RemoveFire = config.getBoolean("RemoveFire", true);
 
+            
+            plugin.saveConfig();
+        }
 }
+        /**
+* Setup and load the configuration file
+* @param directory
+* @param configFile
+*/
+
+

@@ -1,3 +1,13 @@
+author: Chlikikijleelgus
 name: Firebug
 main: me.chlikikijleelgus.firebug.Firebug
-version: 1.2
+version: 1.4
+
+permissions:
+    firebug.*:
+        description: Gives access to all firebug nodes
+        children:
+            firebug.canusefire: true
+    firebug.canusefire:
+        description: Allows safe Flint and Steel use.
+        default: op

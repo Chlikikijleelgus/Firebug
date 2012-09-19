@@ -1,0 +1,17 @@
+#Send a message to player using F&S? default: true
+MessagePlayer: true
+
+#If MessagePlayer is true, send this message. default:"Burn for your destructive actions!"
+Message: "Burn for your destructive actions!"
+
+#Replace F&S from player's hand? default: true
+ReplaceSteel: true
+
+#If ReplaceSteel is true, replace the F&S with this. Default:0 (air) Other suggestion: 265 (iron ingot)
+ReplaceWithID: 0
+
+#If true, will print players' name and location to console when caught using F&S
+LogUsers: true
+
+#If true, unauthorized users will not be able to make fire with F&S
+RemoveFire: true
