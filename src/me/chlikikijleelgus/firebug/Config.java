@@ -2,7 +2,7 @@ package me.chlikikijleelgus.firebug;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
- 
+
 public class Config {
         // Static fields loaded from the configuration file
 		public static boolean MessagePlayer;
@@ -12,12 +12,12 @@ public class Config {
         public static int ReplaceWithID;
         public static boolean RemoveFire;
 
+        /**
+         * Load the configuration file
+         * @param config - Configuration to load
+         */
         static FileConfiguration config;
  
-        /**
-* Load the configuration file
-* @param config - Configuration to load
-*/
         public static void load(Plugin plugin) {
         	config = plugin.getConfig();
         	config.options().copyDefaults(true);
